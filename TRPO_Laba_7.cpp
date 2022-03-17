@@ -45,7 +45,7 @@ choice:
 	case 1:
 	{
 		CEmployee emp;
-		/*cout << "Введите фамилию- ";
+		cout << "Введите фамилию- ";
 		SetConsoleCP(1251);
 		cin >> emp.surname;
 		SetConsoleCP(866);
@@ -65,20 +65,20 @@ choice:
 		cin >> emp.age;
 		cout << "Введите семейный статус(состоите в браке? (Обозначения: да, нет))-";
 		SetConsoleCP(1251);
-		cin >> emp.maritalStatus;*/
+		cin >> emp.maritalStatus;
 		SetConsoleCP(866);
 		cout << "Введите количество детей(если их нет, введите 0)-";
 		cin >> emp.havingChildren;
 		cout << "Введите должность-";
 		SetConsoleCP(1251);
-		getline(cin, emp.position, ' ');
+		getline(cin, emp.position, '.');
 		//cout << endl;
 		//getline(std::cin, emp.position);
 		//cin>> emp.position;
 		SetConsoleCP(866);
 		cout << "Введите ученую степень-";
 		SetConsoleCP(1251);
-		getline(cin, emp.academicDegree);
+		getline(cin, emp.academicDegree, '.');
 		//cout << endl;
 		//cin >> emp.academicDegree;
 		SetConsoleCP(866);
