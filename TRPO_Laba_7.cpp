@@ -1,11 +1,12 @@
 ﻿#include <iostream>
 #include <vector>
-
+#include <Windows.h>
+#include<iomanip>
 using namespace std;
 
 class CEmployee
 {
-public:
+	public:
 	string surname;
 	string name;
 	string patronymic;
@@ -21,7 +22,8 @@ public:
 
 ostream& operator<<(ostream& os, const CEmployee& emp)
 {
-	os << emp.surname << "\n" << emp.name << "\n" << emp.patronymic << "\n" << emp.gender << "\n" << emp.age << "\n" << emp.maritalStatus << "\n" << emp.havingChildren << "\n" << emp.position << "\n" << emp.academicDegree << endl;
+	os << "Фамилия" << setw(20) << emp.surname << "\n" << "Имя" << setw(20) << emp.name << "\n" << "Отчество" << setw(20) << emp.patronymic << "\n" << "Пол" << setw(20) << emp.gender << "\n" << "Возраст" << setw(20) << emp.age << endl;
+	cout << "Семейное положение(состоите в браке?)" << setw(20) << emp.maritalStatus << "\n" << "Наличие детей" << setw(20) << emp.havingChildren << "\n" << "Должность" << setw(20) << emp.position << "\n" << "Ученая степень" << setw(20) << emp.academicDegree << endl;
 	return os;
 }
 
@@ -40,23 +42,37 @@ choice:
 	{
 		CEmployee emp;
 		cout << "Введите фамилию- ";
+		SetConsoleCP(1251);
 		cin >> emp.surname;
+		SetConsoleCP(866);
 		cout << "Введите имя-";
+		SetConsoleCP(1251);
 		cin >> emp.name;
+		SetConsoleCP(866);
 		cout << "Введите отчество-";
+		SetConsoleCP(1251);
 		cin>> emp.patronymic;
+		SetConsoleCP(866);
 		cout << "Введите пол(обозначения: женщина - ж, мужчина - м)-";
+		SetConsoleCP(1251);
 		cin >> emp.gender;
+		SetConsoleCP(866);
 		cout << "Введите возраст(сколько полных лет)- ";
 		cin >> emp.age;
 		cout << "Введите семейный статус(состоите в браке? (Обозначения: да, нет))-";
+		SetConsoleCP(1251);
 		cin >> emp.maritalStatus;
+		SetConsoleCP(866);
 		cout << "Введите количество детей(если их нет, введите 0)-";
 		cin >> emp.havingChildren;
 		cout << "Введите должность-";
+		SetConsoleCP(1251);
 		cin>> emp.position;
+		SetConsoleCP(866);
 		cout << "Введите ученую степень-";
+		SetConsoleCP(1251);
 		cin >> emp.academicDegree;
+		SetConsoleCP(866);
 		listOfEmployees.push_back(emp);
 		goto choice;
 	}
@@ -68,7 +84,7 @@ choice:
 			cout << endl;
 			for (int i = 0; i < listOfEmployees.size(); i++)
 			{
-				cout << "Сотрудник №" << listOfEmployees[i];
+				cout << "Сотрудник №" << i+1<< endl;
 				cout << listOfEmployees[i];
 			}
 			cout << endl;
