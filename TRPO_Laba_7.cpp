@@ -22,8 +22,8 @@ class CEmployee
 
 ostream& operator<<(ostream& os, const CEmployee& emp)
 {
-	os << "Фамилия" << setw(20) << emp.surname << "\n" << "Имя" << setw(20) << emp.name << "\n" << "Отчество" << setw(20) << emp.patronymic << "\n" << "Пол" << setw(20) << emp.gender << "\n" << "Возраст" << setw(20) << emp.age << endl;
-	cout << "Семейное положение(состоите в браке?)" << setw(20) << emp.maritalStatus << "\n" << "Наличие детей" << setw(20) << emp.havingChildren << "\n" << "Должность" << setw(20) << emp.position << "\n" << "Ученая степень" << setw(20) << emp.academicDegree << endl;
+	os << "Фамилия" << "\t" << emp.surname << "\n" << "Имя" << "\t" << emp.name << "\n" << "Отчество" << "\t" << emp.patronymic << "\n" << "Пол" << "\t" << emp.gender << "\n" << "Возраст" << "\t" << emp.age << endl;
+	cout << "Семейное положение(состоите в браке?)" << "\t" << emp.maritalStatus << "\n" << "Наличие детей" << "\t" << emp.havingChildren << "\n" << "Должность" << "\t" << emp.position << "\n" << "Ученая степень" << "\t" << emp.academicDegree << endl;
 	return os;
 }
 
