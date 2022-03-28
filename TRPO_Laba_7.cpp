@@ -26,6 +26,7 @@ class CEmployee
 
 ostream& operator<<(ostream& os, const CEmployee& emp)
 {
+
 	os << "Фамилия" << "\t" << emp.surname << "\n" << "Имя" << "\t" << emp.name << "\n" << "Отчество" << "\t" << emp.patronymic << "\n" << "Пол" << "\t" << emp.gender << "\n" << "Возраст" << "\t" << emp.age << endl;
 	cout << "Семейное положение(состоите в браке?)" << "\t" << emp.maritalStatus << "\n" << "Наличие детей" << "\t" << emp.havingChildren << "\n" << "Должность" << "\t" << emp.position << "Ученая степень" << "\t" << emp.academicDegree << endl;
 	return os;
@@ -34,6 +35,7 @@ ostream& operator<<(ostream& os, const CEmployee& emp)
 
 int main()
 {
+
 	setlocale(LC_ALL, "ru");
 	vector<CEmployee> listOfEmployees;
 choice:
@@ -71,11 +73,13 @@ choice:
 		cin >> emp.havingChildren;
 		cout << "Введите должность-";
 		SetConsoleCP(1251);
-		getline(cin, emp.position, '.');
+		cin >> emp.position;
+		//getline(cin, emp.position, '.');
 		SetConsoleCP(866);
 		cout << "Введите ученую степень-";
 		SetConsoleCP(1251);
-		getline(cin, emp.academicDegree, '.');
+		cin >> emp.academicDegree;
+		//getline(cin, emp.academicDegree, '.');
 		SetConsoleCP(866);
 		listOfEmployees.push_back(emp);
 		goto choice;
@@ -84,14 +88,59 @@ choice:
 	{
 		if (listOfEmployees.size() > 0)
 		{
-			cout << "Список всех сотрудников:";
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].surname << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].name << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].patronymic << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].gender << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].age << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].maritalStatus << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].havingChildren << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].position << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].academicDegree << "\t";
+			}
+			cout << endl;
+			/*cout << "Список всех сотрудников:";
 			cout << endl;
 			for (int i = 0; i < listOfEmployees.size(); i++)
 			{
 				cout << "Сотрудник №" << i+1<< endl;
 				cout << listOfEmployees[i];
 			}
-			cout << endl;
+			cout << endl;*/
 		}
 		else
 			cout << "Список пуст" << endl;
@@ -110,6 +159,61 @@ choice:
 				cout << listOfEmployees[i];
 			}
 			cout << endl;
+			/*for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].surname << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].name << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].patronymic << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].gender << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].age << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].maritalStatus << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].havingChildren << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].position << "\t";
+			}
+			cout << endl;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+				cout << listOfEmployees[i].academicDegree << "\t";
+			}
+			cout << endl;*/
+			/*cout << "Список всех сотрудников:";
+			cout << endl;
+			cout << listOfEmployees;
+			for (int i = 0; i < listOfEmployees.size(); i++)
+			{
+
+				cout << "Сотрудник №" << i + 1 << endl;
+				cout << listOfEmployees[i];
+			}
+			cout << endl;*/
 		}
 		else
 			cout << "Список пуст" << endl;
@@ -221,18 +325,30 @@ choice:
 		{
 		case 1:
 		{
-			listOfEmployees.clear();
+			cout << "Точно хотите удалить?\n Введите 1, если хотите, иначе 0";
+			int a;
+			cin >> a;
+			if (((int)a) > 0) {
+				listOfEmployees.clear();
+			}
 			break;
 		}
 		case 2:
 		{
-			cout << endl;
-			cout << "Выберите номер сотрудника, которого хотите удалить -";
-			int number;
-			cin >> number;
-			number = number - 1;
-			cout << listOfEmployees[number];
-			listOfEmployees.erase(listOfEmployees.begin() + number);
+			cout << "Точно хотите удалить?\n Введите 1, если хотите, иначе 0 - ";
+			int a;
+			cin >> a;
+			if (((int)a) > 0)
+			{
+				cout << endl;
+				cout << "Выберите номер сотрудника, которого хотите удалить -";
+				int number;
+				cin >> number;
+				number = number - 1;
+				cout << listOfEmployees[number];
+				listOfEmployees.erase(listOfEmployees.begin() + number);
+			}
+			
 			break;
 		}
 		default:
